@@ -1,0 +1,158 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    {{#with person}}
+    <div>
+        <h1>{{name}}</h1>
+    </div>
+
+
+    <div>
+        <b>{{age}}, {{gender}}<b>
+    </div>
+    <br>
+    <p>Address: </p>
+    {{#each address}}
+    <address>{{this}}</address>
+    {{/each}}
+    <br>
+    <hr>
+    <div>
+        <h2>Education:</h2>
+    </div>
+
+    {{#each education}}
+    <p>Degree: <em>{{degree}} </em></p>
+    <p>Major: <em>{{major}}</em></p>
+    <p>University: <em>{{university}}</em></p>
+    <p>Graduation Year: <em>{{graduationYear}}</em></p>
+    {{/each}}
+    <br>
+    <hr>
+    <div>
+        <h2>Work Experience:</h2>
+    </div>
+    {{#each workExperience}}
+    <p>Company: <em>{{company}} </em></p>
+    <p>Position: <em>{{title}} </em></p>
+    <p>Duration: <em>{{startDate}} - {{endDate}}</em></p>
+    <p>Responsibilities:</p>
+    {{#each responsibilities}}
+    <ul>
+        <li>
+            <i>{{this}}</i>
+        </li>
+    </ul>
+    {{/each}}
+    <p>Year founded: <em>{{year_founded}} </em></p>
+    <p>Industry: <em>{{industry}} </em></p>
+    <br>
+    <hr>
+    <div>
+        <h3>Employees:</h3>
+    </div>
+    <ul>
+        {{#each employees}}
+
+        <li>
+            <p>Name: <em>{{name}}</em></p>
+        </li>
+        <p>Position: <em>{{position}} </em></p>
+        <p>Department: <em>{{department}} </em></p>
+        <br>
+        <hr>
+
+        <div>
+            <h3>Projects:</h3>
+        </div>
+        <ul>
+            {{#each projects}}
+
+            <li>
+
+                <div>name: <em>{{name}}</em></div>
+            </li>
+            <p>Description: <em>{{description}} </em></p>
+            <p>Status: <em>{{status}} </em></p>
+            <br>
+            <hr>
+
+            <div>
+                <h3>Teams:</h3>
+            </div>
+            <ul>
+                {{#each teams}}
+
+                <li>
+                    <div>Team name: <em>{{team_name}}</em></div>
+                </li>
+                <p><em>{{team_leader.name}}({{team_leader.title}})</em></p>
+                <p><a href="{{team_leader.email}}">{{team_leader.email}}</a></p>
+                <br>
+                <hr>
+
+                <div>
+                    <h3>Members:</h3>
+                </div>
+                <ul>
+                    {{#each team_members}}
+
+                    <li>
+                        <div>Name: <em>{{name}}</em></div>
+                    </li>
+                    <p>Title: <em>{{title}}</em></p>
+                    <a href="{{email}}">{{email}}</a>
+                    <p>Skills: <em>{{skills}}</em></p>
+                    <br>
+                    <hr>
+
+                    <div>
+                        <h3>Projects:</h3>
+                    </div>
+                    <ul>
+                        {{#each projects}}
+
+                        <li>
+                            <div>name: <em>{{name}}</em></div>
+                        </li>
+                        <p>Description: <em>{{description}} </em></p>
+                        <p>Technologies: <em>{{technologies}} </em></p>
+                        <br>
+                        <hr>
+                        <div>
+                            <h3>Members:</h3>
+                        </div>
+                        <ul>
+                            {{#each team_members}}
+
+                            <li>
+                                <p>Name: <em>{{name}}</em></p>
+                                <p>Title: <em>{{title}}</em></p>
+                            </li>
+                            {{/each}}
+                            <br>
+                            <hr>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+    </ul>
+    {{/each}}
+    {{/each}}
+    {{/each}}
+    {{/each}}
+    {{/each}}
+    {{/each}}
+    {{/with}}
+</div>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
