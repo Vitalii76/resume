@@ -1,0 +1,116 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+
+    <div>
+        <h1>{{name}}</h1>
+    </div>
+
+    <div>
+        <h2>Description:</h2>
+        <i>{{description}}</i>
+        <h2>History:</h2>
+        <ul>{{#with history}}
+            <li>
+                <p>Year: <time>{{year}}</time></p>
+                <p>Founder: <i>{{founder}}</i></p>
+            </li>
+            {{/with}}
+        </ul>
+
+    </div>
+    <br>
+    <hr>
+
+    <div>
+        <h2>Types:</h2>
+    </div>
+    <ul>
+        {{#each types}}
+        <li>
+            <p><i>{{this}}</i></p>
+        </li>
+        {{/each}}
+    </ul>
+    <br>
+    <hr>
+
+    <div>
+        <h2>Syntax:</h2>
+    </div>
+    <ul>
+        {{#with syntax}}
+        <li>
+            <p>Variables: <i>{{variables}}</i></p>
+            <p>Functions: <i>{{functions}}</i></p>
+            <p>Conditionals: <i>{{conditionals}}</i></p>
+            <p>Loops: <i>{{loops}}</i></p>
+            <p>Classes: <i>{{classes}}</i></p>
+        </li>
+        {{/with}}
+    </ul>
+    <br>
+    <hr>
+
+    <div>
+        <h2>Features:</h2>
+    </div>
+    <ul>
+        {{#each features}}
+        <li>
+            <p><i>{{this}}</i></p>
+        </li>
+        {{/each}}
+    </ul>
+    <br>
+    <hr>
+
+    <div>
+        <h2>Libraries:</h2>
+    </div>
+    <ul>
+        {{#each libraries}}
+        <li>
+            <p><i>{{this}}</i></p>
+        </li>
+        {{/each}}
+    </ul>
+    <br>
+    <hr>
+
+    <div>
+        <h2>Tools:</h2>
+    </div>
+    <ul>
+        {{#each tools}}
+        <li>
+            <p><i>{{this}}</i></p>
+        </li>
+        {{/each}}
+    </ul>
+    <br>
+    <hr>
+
+    <div>
+        <h2>Community:</h2>
+    </div>
+    <ul>{{#each community}}
+        <li>
+            <p>Name <i>{{name}}</i></p>
+            <p>Type: <i>{{type}}</i></p>
+        </li>
+        {{/each}}
+    </ul>
+    <br>
+    <hr>
+
+</div>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
