@@ -1,0 +1,226 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+<main class="p-5">
+
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="pt-2 pb-2">
+                    <div class="nav">
+                        {{#each navigation.links}}
+                        <div class="nav-item ">
+                            <a href="{{href}}" class="nav-link">{{text}}</a>
+                        </div>
+                        {{/each}}
+
+                        <div class="nav-item ">
+                            <a href="#" class="nav-link disabled">Disabled</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12 mb-5 mt-5">
+        <div class="row gx-2 gy-4">
+            {{#with newsBlock}}
+            <h2 class="text-center mb-1">{{title}}</h2>
+            {{#each cards}}
+            <div class="col-3">
+                <div class="card text-bg-dark">
+                    <div class="card-header">{{title}}{{#if isTop}}
+                        <span class="badge text-bg-danger rounded-pill m-1">Топ
+                        </span>{{/if}}{{#if isNew}}<span class="badge text-bg-success rounded-pill m-1">Нова
+                        </span>
+                        {{/if}}
+                    </div>
+
+                    <div class="card-body">
+                        {{description}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{/with}}
+        </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+        <div class="col-12 mb-5 mt-5">
+            {{#with goodsBlock}}
+
+            <div class="nav nav-tabs">
+                {{#each tabs}}
+                <div class="nav-item">
+
+                    <a href="#" {{#if isActive}} class="nav-link active mx-1" {{/if}} {{#if isDisabled}}
+                        class="nav-link disabled mx-1" {{else}} class="nav-link mx-1" {{/if}}>{{text}}</a>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mb-5">
+
+        <div class="row gx-2 gy-4">
+
+
+            {{#each cards}}
+            <div class="col-4">
+                <div class="card text-bg-light">
+
+                    <img class="card-img-top" src="{{image}}" alt="{{title}}">
+
+                    <div class="card-body">
+                        <h5 class="card-title text-bg-light">{{title}}{{#if isHot}}
+                            <span class="badge text-bg-warning rounded-pill text-light text-uppercase m-1">Hot!
+                            </span>{{/if}}{{#if isNew}}<span class="badge text-bg-primary rounded-pill m-1">Нове
+                            </span>
+                            {{/if}}
+                        </h5>
+                        <p class="text-bg-light">{{description}}</p>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{/with}}
+        </div>
+
+
+    </div>
+    </div>
+    <hr>
+
+
+    <div class="col-12 mb-5 mt-5">
+        <div>
+            {{#with subscribe}}
+
+
+            <div class="alert alert-dark">
+                <h2 class="text-light mb-2">{{header}}
+                </h2>
+                <p class="text-light">{{description}}</p>
+                <div class="col-2">
+                    <div class="row g-3">
+                        {{#each buttons}}
+                        <button href="{{link}}" class="btn btn-primary ">{{text}}</button>
+                        {{/each}}
+                    </div>
+                </div>
+
+            </div>
+            {{/with}}
+        </div>
+    </div>
+    <hr>
+
+    <div class="col-12 mb-5 mt-5">
+        <div>
+            {{#with service}}
+
+
+            <div class="alert alert-success text-center">
+                <h2 class="text-light text-center mb-2">{{title}}
+                </h2>
+                <p class="text-light text-center">{{description}}</p>
+                <div class="col-12">
+                    <div>
+                        {{#each buttons}}
+                        <button href="{{link}}" class="btn btn-primary">{{text}}</button>
+                        {{/each}}
+                    </div>
+                </div>
+
+            </div>
+            {{/with}}
+        </div>
+    </div>
+    <hr>
+
+    <div class="col-12">
+        <div class="row g-1">
+
+
+            {{#each footer}}
+            <div class="col-2">
+                <div class="row g-5">
+                    <div class="nav">
+                        <div class="nav-item">
+                            {{#with [0]}}
+
+                            <a href="{{link}}" class="nav-link">{{text}}</a>
+
+                            {{/with}}
+
+                            {{#with [1]}}
+
+                            <a href="{{link}}" class="nav-link">{{text}}</a>
+
+                            {{/with}}
+                            {{#with [2]}}
+
+                            <a href="{{link}}" class="nav-link">{{text}}</a>
+
+                            {{/with}}
+                            {{#with [3]}}
+
+                            <a href="{{link}}" class="nav-link disabled">{{text}}</a>
+
+                            {{/with}}
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+
+        </div>
+    </div>
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
