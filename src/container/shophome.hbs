@@ -11,7 +11,7 @@
                     <div class="nav">
                         {{#each navigation.links}}
                         <div class="nav-item ">
-                            <a href="{{href}}" class="nav-link">{{text}}</a>
+                            <a href="{{href}}" class="nav-link {{#if @last}} disabled{{/if}}">{{text}}</a>
                         </div>
                         {{/each}}
 
@@ -156,28 +156,11 @@
                 <div class="row g-5">
                     <div class="nav">
                         <div class="nav-item">
-                            {{#with [0]}}
+                            {{#each this}}
 
-                            <a href="{{link}}" class="nav-link">{{text}}</a>
+                            <a href="{{link}}" class="nav-link {{#if @last}} disabled{{/if}}">{{text}}</a>
 
-                            {{/with}}
-
-                            {{#with [1]}}
-
-                            <a href="{{link}}" class="nav-link">{{text}}</a>
-
-                            {{/with}}
-                            {{#with [2]}}
-
-                            <a href="{{link}}" class="nav-link">{{text}}</a>
-
-                            {{/with}}
-                            {{#with [3]}}
-
-                            <a href="{{link}}" class="nav-link disabled">{{text}}</a>
-
-                            {{/with}}
-
+                            {{/each}}
 
                         </div>
 

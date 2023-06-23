@@ -8,8 +8,7 @@
                     <div class="nav">
                         {{#each navigation.links}}
                         <div class="nav-item">
-                            <a href="{{href}}" {{#if href}}class="nav-link" {{else}}class="nav-link disabled"
-                                {{/if}}>{{text}}</a>
+                            <a href="{{href}}" class="nav-link {{#if @last}} disabled{{/if}}">{{text}}</a>
                         </div>
                         {{/each}}
                     </div>
@@ -186,103 +185,7 @@
                 seller=seller title=title value=value rating=rating text=text this=this advantages=advantages
                 disadvantages=disadvantages images=images coments=coments}}
 
-                {{!-- <div class="card p-3 mt-4 mb-5">
 
-                    <div class="card mb-2">
-
-
-                        {{#with title}}
-
-                        <div class="card-header">
-                            <h5>{{userName}}</h5>
-                            <h6>{{caption}}</h6>
-                            <p>
-                            <h6>{{date}}</h6>
-                            </p>
-
-                        </div>
-
-                        {{/with}}
-
-
-
-
-                        {{#with reviewBody}}
-                        {{#with seller}}
-                        <div class="card-body">
-                            <h6>{{title}}: {{value}}</h6>
-
-
-
-                            {{/with}}
-
-
-                            {{#with rating}}
-
-
-                            <p>
-                            <h6>{{title}}: {{value}}</h6>
-                            </p>
-
-                            {{/with}}
-                            {{#each text}}
-                            <p>
-                            <h6>{{this}}</h6>
-                            </p>
-                            {{/each}}
-
-
-
-
-                            {{#with advantages}}
-
-                            <div>
-                                <h5>{{title}}:</h5>
-                                <h6>{{text}}</h6>
-                            </div>
-                            {{/with}}
-                            <br>
-
-
-                            {{#with disadvantages}}
-
-                            <div>
-                                <h5>{{title}}:</h5>
-                                <h6>{{text}}</h6>
-                            </div>
-                            {{/with}}
-
-
-                            <div class="col-4 pt-1">
-
-                                <div class="row gx-2 gy-2">
-                                    {{#each images}}
-                                    <div class="col-4 pt-1">
-                                        <img class="card-img-top" src="{{this}}">
-
-                                    </div>
-                                    {{/each}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{#each coments}}
-                    <div class="card ms-5 mt-4 mb-2">
-
-                        <div class="card-body">
-                            <h5>{{userName}}</h5>
-                            <h6>{{text}}</h6>
-                            <p>
-                            <h6>{{date}}</h6>
-                            </p>
-
-                        </div>
-
-
-                    </div>
-                    {{/each}}
-                    {{/with}}
-                </div> --}}
 
                 {{/each}}
 
@@ -321,43 +224,19 @@
                             <div class="row g-5">
                                 <div class="nav">
                                     <div class="nav-item">
-                                        {{#with [0]}}
+                                        {{#each this}}
 
-                                        <a href="{{link}}" class="nav-link">{{text}}</a>
+                                        <a href="{{link}}" class="nav-link {{#if @last}} disabled{{/if}}">{{text}}</a>
 
-                                        {{/with}}
-
-                                        {{#with [1]}}
-
-                                        <a href="{{link}}" class="nav-link">{{text}}</a>
-
-                                        {{/with}}
-                                        {{#with [2]}}
-
-                                        <a href="{{link}}" class="nav-link">{{text}}</a>
-
-                                        {{/with}}
-                                        {{#with [3]}}
-
-                                        <a href="{{link}}" class="nav-link disabled">{{text}}</a>
-
-                                        {{/with}}
-
-
+                                        {{/each}}
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
                         {{/each}}
-
-
                     </div>
                 </div>
                 <hr>
-
             </div>
         </div>
     </div>
